@@ -19,6 +19,8 @@ jobs:
       - name: Run AI inference
         id: inference
         uses: actions/ai-inference@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           prompt: |
             Summarize the following GitHub issue in one paragraph:
