@@ -39,11 +39,11 @@ jobs:
       #...
       - name: Run OpenCode Review
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          #ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}anthropic/claude-sonnet-4-20250514
           GH_TOKEN: ${{ github.token }}
           OPENCODE_PERMISSION: '{ "bash": { "*": "deny", "gh api:*": "allow" }, "external_directory": { "/tmp/*": "allow" } }'
         run: |
-          opencode run -m anthropic/claude-sonnet-4-20250514 "You are reviewing PRs for the Cloudflare Sandbox SDK.
+          opencode run -m opencode/glm-4.7-free "You are reviewing PRs for the Cloudflare Sandbox SDK.
 
           Repository: ${{ github.repository }}
           PR Number: ${{ github.event.pull_request.number }}
